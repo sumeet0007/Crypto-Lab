@@ -1,0 +1,55 @@
+/* src/styles/globals.css */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  header {
+    background: #282c34;
+    padding: 1rem;
+    color: white;
+    text-align: center;
+  }
+  
+  header input {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  main {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .crypto-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .crypto-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem;
+    width: 200px;
+    cursor: pointer;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .crypto-card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .crypto-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+  
