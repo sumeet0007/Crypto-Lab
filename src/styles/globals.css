@@ -52,4 +52,74 @@ body {
     height: 50px;
     object-fit: contain;
   }
+
+  .hero-header {
+    background-image: url("../assets/Eth.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relaive;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #474747;
   
+  }
+
+  .hero-header h1 {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text readability */
+    border-radius: 5px;
+  }
+  
+  .hero-header input {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+
+.crypto-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.crypto-cards > div {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  background: #fff;
+  width: calc(33% - 40px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.news, .blogs, .exchanges, .top-cryptos {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.news h2, .blogs h2, .exchanges h2, .top-cryptos h2 {
+  margin-bottom: 20px;
+}
+
+.news-article, .blogs-article, .exchanges-article, .top-cryptos-article {
+  margin-bottom: 20px;
+}
+
+.slick-track {
+  display: flex !important;
+  gap: 20px !important;
+}

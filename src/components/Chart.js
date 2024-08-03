@@ -11,6 +11,7 @@ export default function Chart({ data }) {
 
   useEffect(() => {
     if (data) {
+      console.log(data);
       const labels = data.prices.map(price => new Date(price[0]).toLocaleDateString());
       const prices = data.prices.map(price => price[1]);
 

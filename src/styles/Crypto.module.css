@@ -1,0 +1,41 @@
+.heroHeader {
+    background-color: #282c34;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .heroHeader h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
+  
+  .searchInput {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+  }
+  
+  .main {
+    padding: 20px;
+  }
+  
+  .cryptoCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .cryptoCards a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .cryptoCards a:hover {
+    transform: translateY(-10px);
+  }
+  

@@ -1,8 +1,12 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Link from 'next/link';
-import CryptoCard from '../components/CryptoCard';
+import News from '../components/News';
+import TrendingCrypto from '../components/TrendingCrypto';
+import TrendingNfts from '../components/TrendingNfts';
+// import Blogs from '../components/Blogs';
+// import Exchanges from '../components/Exchanges';
+// import TopCryptos from '../components/TopCryptos';
 
 // In-memory cache
 let cache = null;
@@ -50,8 +54,7 @@ export default function Home() {
       fetchCryptos();
     }, 30000); // Update every 30 seconds
 
-    return () => {
-      clearInterval(interval);
+    return () => {clearInterval(interval);
     };
   }, []);
 
@@ -71,31 +74,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
+      <header className="hero-header">
         <h1>Live Cryptocurrency Price Tracker</h1>
-        <input
-          type="text"
-          placeholder="Search cryptocurrency..."
-          value={search}
-          onChange={handleSearch}
-        />
       </header>
 
       <main>
-        {loading && <p>Loading...</p>}
-        {error && <p>Error: {error}</p>}
-        {filteredCryptos.length > 0 && (
-          <div>
-            <h2>Cryptocurrencies</h2>
-            <div className="crypto-cards">
-              {filteredCryptos.map((crypto) => (
-                <Link key={crypto.id} href={`/crypto/${crypto.id}`} passHref>
-                    <CryptoCard crypto={crypto} />
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
+        <News />
+        <TrendingCrypto />
+        <TrendingNfts />
+        {/* <Blogs />
+        <Exchanges />
+        <TopCryptos /> */}
       </main>
     </div>
   );
