@@ -1,69 +1,36 @@
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 import News from '../components/News';
 import TrendingCrypto from '../components/TrendingCrypto';
 import TrendingNfts from '../components/TrendingNfts';
-// import Blogs from '../components/Blogs';
-// import Exchanges from '../components/Exchanges';
-// import TopCryptos from '../components/TopCryptos';
+import Confetti from 'react-confetti';
 
-// In-memory cache
-let cache = null;
-const CACHE_DURATION = 5 * 60 * 1000; // Cache duration: 5 minutes
-let cacheTimestamp = 0;
+const canvasStyles = {
+  position: 'fixed',
+  pointerEvents: 'none',
+  width: '100%',
+  height: '100%',
+  top: 0,
+  left: 0,
+};
 
 export default function Home() {
-  const [cryptos, setCryptos] = useState([]);
-  const [filteredCryptos, setFilteredCryptos] = useState([]);
-  const [search, setSearch] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [email, setEmail] = useState('');
+  const [showConfetti, setShowConfetti] = useState(false);
 
-  useEffect(() => {
-    const fetchCryptos = async () => {
-      try {
-        const currentTime = Date.now();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-        // Check if cache is valid
-        if (cache && (currentTime - cacheTimestamp < CACHE_DURATION)) {
-          setCryptos(cache);
-          setFilteredCryptos(cache);
-        } else {
-          const response = await axios.get('/api/crypto');
-          const data = response.data;
+    // Show confetti
+    setShowConfetti(true);
 
-          // Update cache
-          cache = data;
-          cacheTimestamp = currentTime;
+    // Clear the email field
+    setEmail('');
 
-          setCryptos(data);
-          setFilteredCryptos(data);
-        }
-      } catch (error) {
-        console.error('Error fetching cryptos:', error.message);
-        setError('Failed to fetch cryptocurrencies');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCryptos();
-
-    const interval = setInterval(() => {
-      fetchCryptos();
-    }, 30000); // Update every 30 seconds
-
-    return () => {clearInterval(interval);
-    };
-  }, []);
-
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
-    const filtered = cryptos.filter((crypto) =>
-      crypto.name.toLowerCase().includes(event.target.value.toLowerCase())
-    );
-    setFilteredCryptos(filtered);
+    // Hide confetti after a few seconds
+    setTimeout(() => {
+      setShowConfetti(false);
+    }, 10000); // Duration of the confetti effect
   };
 
   return (
@@ -71,7 +38,6 @@ export default function Home() {
       <Head>
         <title>Crypto Tracker</title>
         <meta name="description" content="Live cryptocurrency price tracker" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <header className="hero-header">
@@ -82,10 +48,49 @@ export default function Home() {
         <News />
         <TrendingCrypto />
         <TrendingNfts />
-        {/* <Blogs />
-        <Exchanges />
-        <TopCryptos /> */}
+        <header style={{ marginTop: '40px' }} className="hero-header">
+          <section>
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Please don't submit There might be an easter egg </p>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email address"
+                required
+              />
+              <button type="submit">Subscribe</button>
+            </form>
+
+            {/* Confetti Effect */}
+            {showConfetti && <Confetti style={canvasStyles} />}
+
+            {/* Optional additional message */}
+            {showConfetti && (
+              <div className='confettiMessage'>
+                <h2 style={{fontSize:"15px"}}>🎉 You Found an Easter Egg! 🎉</h2>
+              </div>
+            )}
+          </section>
+        </header>
       </main>
+
+      <style jsx>{`
+        .confettiMessage {
+          text-align: center;
+          animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      `}</style>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from '../styles/NewsPage.module.css';
 import defaultImage from "../assets/eth2.jpg"
+import Head from 'next/head';
 
 const Index = () => {
   const [news, setNews] = useState([]);
@@ -33,6 +34,10 @@ const Index = () => {
 
   return (
     <>
+    <Head>
+      <title>News - The Crypto Lab</title>
+      <meta name="description" content="About CoinChain, built by Sumeet Sonawane for The Selection Lab" />
+    </Head>
     <header className='hero-header'>
       <h1>Crypto News</h1>
     </header>

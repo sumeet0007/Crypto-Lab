@@ -19,8 +19,8 @@ const Footer = () => {
           <h3>Follow Us</h3>
           <ul className={styles.socialLinks}>
             <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/sumeetsonawane-connect" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/sumeet0007" target="_blank" rel="noopener noreferrer">GitHub</a></li>
           </ul>
         </div>
       </div>

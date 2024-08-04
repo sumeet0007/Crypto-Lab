@@ -66,9 +66,8 @@ export default function Index() {
   return (
     <div>
       <Head>
-        <title>Crypto Tracker</title>
+        <title>Coin List</title>
         <meta name="description" content="Live cryptocurrency price tracker" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <header className='hero-header'>

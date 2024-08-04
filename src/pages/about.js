@@ -14,15 +14,18 @@ const About = () => {
       </header>
 
       <main className={styles.container}>
-        <section className={styles.introduction}>
+<section className={styles.introduction}>
           <h2>Project Overview</h2>
           <p>
-          The Crypto Lab is a cryptocurrency tracking platform built by Sumeet Sonawane as an assignment for The Selection Lab. 
+            The Crypto Lab is a cryptocurrency tracking platform built by Sumeet Sonawane as an assignment for The Selection Lab.
             The project demonstrates the application of modern web development practices and technologies.
           </p>
           <p>
-            This project integrates various APIs and libraries to deliver a robust user experience with real-time data and 
+            This project integrates various APIs and libraries to deliver a robust user experience with real-time data and
             interactive features.
+          </p>
+          <p>
+            P.S. If you reject my application, I might have to update this About page to "The Rejection Lab!" 😉
           </p>
         </section>
 

@@ -87,6 +87,35 @@ body {
     outline: none;
   }
 
+  .hero-header h2 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text readability */
+    border-radius: 5px;
+  }
+  .hero-header p {
+    font-size: 16px;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text readability */
+    border-radius: 5px;
+  }
+
+  .hero-header button {
+    padding: 10px 50px;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background for text readability */
+    border-radius: 5px;
+    margin-left: 10px;
+    border: transparent;
+    cursor: pointer;
+  }
+
+  .confettiMessage {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+
 .crypto-cards {
   display: flex;
   flex-wrap: wrap;

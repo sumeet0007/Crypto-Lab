@@ -27,3 +27,26 @@
 .cryptoDetails p {
   margin: 5px 0;
 }
+
+.cryptoDetails {
+  margin: 20px 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.cryptoDetails th,
+.cryptoDetails td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  width: 1%;
+}
+
+.cryptoDetails th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #61dafb;
+  color: white;
+  width: 1%;
+}
+
