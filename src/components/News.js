@@ -1,4 +1,4 @@
-// components/News.js
+/* eslint-disable no-undef */
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Slider from 'react-slick';
@@ -42,7 +42,6 @@ const News = () => {
     slidesToScroll: 1,
     arrows: false, // Hide arrows
     autoplay: true,
-    speed: 2000,
     autoplaySpeed: 1500,
     cssEase: "linear",
     responsive: [

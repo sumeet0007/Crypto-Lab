@@ -19,5 +19,6 @@ module.exports = {
     ],
     // Disable prop-types validation
     'react/prop-types': 'off',
+    'react/no-unescaped-entities' : 'off'
   },
 }

@@ -1,4 +1,4 @@
-// components/News.js
+/* eslint-disable no-undef */
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from '../styles/NewsPage.module.css';
