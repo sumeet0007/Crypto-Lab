@@ -76,7 +76,7 @@ export default function Home() {
         </header>
       </main>
 
-      <style jsx>{`
+      <style>{`
         .confettiMessage {
           text-align: center;
           animation: fadeIn 1s ease-in-out;

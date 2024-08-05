@@ -4,7 +4,6 @@ import axios from 'axios';
 
 export default async function handler(req, res) {
   const { id } = req.query;
-  const apiKey = process.env.COIN_GECKO_API_KEY;
 
   try {
     const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart`, {

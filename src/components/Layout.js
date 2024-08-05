@@ -9,7 +9,7 @@ export default function Layout({ children }) {
       <Header />
       <main>{children}</main>
       <Footer />
-      <style jsx>{`
+      <style>{`
         main {
           padding: 1rem;
         }

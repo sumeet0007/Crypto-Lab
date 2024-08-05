@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from '../styles/NewsPage.module.css';
-import defaultImage from "../assets/eth2.jpg"
 import Head from 'next/head';
 
 const Index = () => {

@@ -1,7 +1,7 @@
 // src/components/CryptoCard.js
 
 export default function CryptoCard({ crypto, onClick }) {
-    const { id, name, current_price, image } = crypto;
+    const { name, current_price, image } = crypto;
   
     return (
       <div className="crypto-card" onClick={onClick}>
