@@ -14,11 +14,6 @@ const News = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const today = new Date();
-        const yesterday = new Date(today);
-        yesterday.setDate(today.getDate() - 1);
-        const fromDate = yesterday.toISOString().split('T')[0];
-        const toDate = today.toISOString().split('T')[0];
         const apiKey = process.env.NEXT_PUBLIC_TOKEN_INSIGHT;
 
         const response = await axios.get(
