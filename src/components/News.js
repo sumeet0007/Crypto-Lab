@@ -19,12 +19,18 @@ const News = () => {
         yesterday.setDate(today.getDate() - 1);
         const fromDate = yesterday.toISOString().split('T')[0];
         const toDate = today.toISOString().split('T')[0];
-        const apiKey = process.env.NEXT_PUBLIC_NEWS_API_KEY;
+        const apiKey = process.env.NEXT_PUBLIC_TOKEN_INSIGHT;
 
         const response = await axios.get(
-          `https://newsapi.org/v2/everything?q=(crypto AND bitcoin)&from=${fromDate}&to=${toDate}&sortBy=popularity&apiKey=${apiKey}`
+          `https://api.tokeninsight.com/api/v1/news/list`, {
+            headers: {
+              "accept": "application/json",
+              "TI_API_KEY": apiKey
+          }
+          }
         );
-        setNews(response.data.articles.slice(0, 10)); // Show only 10 news articles
+        console.log(response, "response");
+        setNews(response.data.data.items.slice(0, 10)); // Show only 10 news articles
       } catch (error) {
         console.error('Error fetching news:', error);
         setError('Failed to fetch news');
@@ -83,12 +89,12 @@ const News = () => {
         <Slider.default {...settings} className={styles.slider}>
           {news.map((article, index) => (
             <div key={index} className={styles.newsCard}>
-              <img src={article.urlToImage || '/default-image.jpg'} alt={article.title} className={styles.newsImage} />
+              <img src={article.image_url || '/default-image.jpg'} alt={article.title} className={styles.newsImage} referrerpolicy="no-referrer"  />
               <div className={styles.newsContent}>
                 <h3 className={styles.elipsisClass}>{article.title}</h3>
                 <p className={styles.elipsisClass}>{article.description}</p>
                 <p className={styles.newsMeta}>
-                  <span>{new Date(article.publishedAt).toLocaleDateString()}</span> | <span>{article.author}</span>
+                  <span>{new Date(article.timestamp).toLocaleDateString()}</span> | <span>tokeninsight.com</span>
                 </p>
                 <a href={article.url} target="_blank" rel="noopener noreferrer" className={styles.readMore}>
                   Read more

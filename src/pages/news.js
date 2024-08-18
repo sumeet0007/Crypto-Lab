@@ -16,12 +16,18 @@ const Index = () => {
         yesterday.setDate(today.getDate() - 1);
         const fromDate = yesterday.toISOString().split('T')[0];
         const toDate = today.toISOString().split('T')[0];
-        const apiKey = process.env.NEXT_PUBLIC_NEWS_API_KEY;
+        const apiKey = process.env.NEXT_PUBLIC_TOKEN_INSIGHT;
 
         const response = await axios.get(
-          `https://newsapi.org/v2/everything?q=crypto&from=${fromDate}&to=${toDate}&sortBy=popularity&apiKey=${apiKey}`
+          `https://api.tokeninsight.com/api/v1/news/list`, {
+            headers: {
+              "accept": "application/json",
+              "TI_API_KEY": apiKey
+          }
+          }
         );
-        setNews(response.data.articles);
+        console.log(response, "response");
+        setNews(response.data.data.items); // Show only 10 news articles
       } catch (error) {
         console.error('Error fetching news:', error);
         setError('Failed to fetch news');
@@ -47,13 +53,13 @@ const Index = () => {
           {news.map((article, index) => (
             <div key={index} className={styles.newsCard}>
                 <div className={styles.newCryptocurrenciessImage}>
-                    <img src={article.urlToImage || "../assets/bitcoin.jpg"} alt={article.title} className={styles.newsImage} />
+                    <img src={article.image_url || "../assets/bitcoin.jpg"} alt={article.title} className={styles.newsImage} referrerpolicy="no-referrer"  />
                 </div>
               <div className={styles.newsContent}>
                 <h3>{article.title}</h3>
                 <p>{article.description}</p>
                 <p className={styles.newsMeta}>
-                  <span>{new Date(article.publishedAt).toLocaleDateString()}</span> | <span>{article.author}</span>
+                  <span>{new Date(article.timestamp).toLocaleDateString()}</span> | <span>tokeninsight.com</span>
                 </p>
                 <a href={article.url} target="_blank" rel="noopener noreferrer">
                   Read more
